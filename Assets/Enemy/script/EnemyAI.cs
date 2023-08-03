@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
-      AudioSource audioSource;
+    public AudioSource audioSource;
     public AudioClip ZombieSound;
     public float enemyAttck = 20f;
     public Transform target; // Reference to the player's transform
@@ -18,7 +18,7 @@ public class EnemyAI : MonoBehaviour
     private bool canAttack = true;
     private bool isFound; // Flag to track attack cooldown
     private PlayerHealthBar1 playerHealthBar;
-
+    public AudioClip ZombieAttack;
     private enum EnemyState
     {
         Patrol,
@@ -68,7 +68,9 @@ public class EnemyAI : MonoBehaviour
         if (canAttack)
         {
             animation.SetTrigger("ENEMYATTACK");
+         
             StartCoroutine(AttackCooldown());
+
         }
     }
 
@@ -111,7 +113,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-   
+
 
 
 

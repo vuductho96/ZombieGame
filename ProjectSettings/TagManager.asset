@@ -13,6 +13,7 @@ TagManager:
   - ShootingPoint
   - groundLayer
   - JetPack
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - UI
   - Enemy
   - Ground
-  - 
+  - FireBall
   - 
   - 
   - 
