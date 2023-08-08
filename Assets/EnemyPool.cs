@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPool : MonoBehaviour
+public class EnemyPool2 : MonoBehaviour
 {
     // The prefabs of the enemies to pool
     public GameObject[] enemyPrefabs;

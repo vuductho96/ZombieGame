@@ -1,40 +1,55 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+
 public class pickupgun : MonoBehaviour
 {
+    AMMODISPLAY ammo;
     public GameObject GunObject;
     public GameObject TargetGun;
     public GameObject PickUpText;
+    public GameObject CrossHair;
     private string gunTag = "Gun";
     private GameObject currentWeapon;
     private bool hasPickedUpGun = false;
     private bool weaponInRange;
     private bool hasGunObject = false;
-    public GameObject CrossHair;
     private Animator Anim;
     private AudioSource audioSource;
 
-
     private void Start()
     {
-
+        ammo = FindObjectOfType<AMMODISPLAY>();
         audioSource = GetComponent<AudioSource>();
         Anim = GetComponent<Animator>();
+
+        // Deactivate components and objects at the start
+        if (ammo != null)
+        {
+            ammo.SetAmmoUIActive(false);
+        }
         PickUpText.SetActive(false);
         TargetGun.SetActive(false);
         currentWeapon = GunObject;
         CrossHair.SetActive(false);
-
-
     }
 
     private void Update()
     {
+        HandlePickup();
+        HandleDrop();
+        CheckGunsInRange();
+    }
+
+    private void HandlePickup()
+    {
         if (Input.GetKeyDown(KeyCode.E) && !hasPickedUpGun && weaponInRange)
         {
+            // Deactivate old gun and activate picked up gun
+            GunObject.SetActive(false);
+            TargetGun.SetActive(true);
+            ammo.SetAmmoUIActive(true);
             CrossHair.SetActive(true);
             PickUpText.SetActive(false);
+
             Collider[] colliders = Physics.OverlapSphere(transform.position, 2.0f);
             foreach (Collider collider in colliders)
             {
@@ -47,14 +62,20 @@ public class pickupgun : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Q) && hasPickedUpGun)
+    }
+
+    private void HandleDrop()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && hasPickedUpGun)
         {
             Drop();
             hasPickedUpGun = false;
             hasGunObject = false;
         }
+    }
 
-        // Check if there are any colliders with the gunTag in range
+    private void CheckGunsInRange()
+    {
         Collider[] collidersInRange = Physics.OverlapSphere(transform.position, 2.0f);
         bool anyGunsInRange = false;
         foreach (Collider collider in collidersInRange)
@@ -66,18 +87,14 @@ public class pickupgun : MonoBehaviour
             }
         }
 
-        if (!anyGunsInRange)
-        {
-            weaponInRange = false;
-            PickUpText.SetActive(false);
-        }
+        weaponInRange = anyGunsInRange;
+        PickUpText.SetActive(weaponInRange);
     }
 
     private void PickUp(GameObject gun)
     {
         if (!gun.CompareTag(gunTag))
         {
-
             return;
         }
 
@@ -85,8 +102,6 @@ public class pickupgun : MonoBehaviour
         currentWeapon.SetActive(false);
         currentWeapon = gun;
         TargetGun.SetActive(true);
-
-
     }
 
     private float GetGroundHeight(Vector3 position)
@@ -106,25 +121,26 @@ public class pickupgun : MonoBehaviour
         currentWeapon.SetActive(true);
         PickUpText.SetActive(false);
         CrossHair.SetActive(false);
+
         Vector3 dropPosition = transform.position + transform.forward * 2.0f;
         dropPosition.y = GetGroundHeight(dropPosition) + 0.5f;
 
         currentWeapon.transform.position = dropPosition;
-
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.collider.CompareTag(gunTag) && !hasPickedUpGun)
         {
-            PickUpText.SetActive(true);
             weaponInRange = true;
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag(gunTag))
         {
+            weaponInRange = false;
             PickUpText.SetActive(false);
         }
     }

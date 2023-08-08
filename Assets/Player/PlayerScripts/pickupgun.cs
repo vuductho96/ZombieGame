@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class pickupgun : MonoBehaviour
+public class pickupgun2 : MonoBehaviour
 {
     public GameObject GunObject;
     public GameObject TargetGun;

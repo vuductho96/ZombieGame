@@ -51,7 +51,7 @@ public class Projectile : MonoBehaviour
         // Check if the collision is with an enemy
         if (collision.gameObject.CompareTag("Enemy"))
         {
-           
+         
 
             // Handle the collision with the enemy, apply damage, or perform other actions.
             EnemyHealthBar enemyHealth = collision.transform.GetComponent<EnemyHealthBar>();

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartGameButton : MonoBehaviour
+public class StartGameButton2 : MonoBehaviour
 {
     
     public string mainGameSceneName; // Replace this with the name of your main game scene

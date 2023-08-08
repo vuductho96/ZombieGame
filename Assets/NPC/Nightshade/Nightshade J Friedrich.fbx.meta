@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 05080ddd25824024e82debe9d453e49a
+guid: 24697aa68025d7248941a8ba8f4b23df
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -8,27 +8,27 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Nightshade_MAT
-    second: {fileID: 2100000, guid: 8c27be1ac6c602c4898138384e312b30, type: 2}
+    second: {fileID: 2100000, guid: fa9215857c7975747b24dbefca00c48c, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Nightshade_diffuse
-    second: {fileID: 2800000, guid: 8ca9a536f0122ca44b8a8b06f057cb98, type: 3}
+    second: {fileID: 2800000, guid: 9bf03f8203ba3844b952d9e978818702, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Nightshade_glow
-    second: {fileID: 2800000, guid: 55d8c05f1af79cc41ae1dcf03f84dee8, type: 3}
+    second: {fileID: 2800000, guid: 1ac49ce62e61ba248b38734f9655a436, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Nightshade_normal
-    second: {fileID: 2800000, guid: 78cdd04616aa9b04ebe0d62ea7571683, type: 3}
+    second: {fileID: 2800000, guid: 74f277772001fc3409644a7215eb71a2, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Nightshade_specular
-    second: {fileID: 2800000, guid: ce3825f5992b9d347a1d47e6a5d7f3d2, type: 3}
+    second: {fileID: 2800000, guid: a8260844cbbdf6e40a744937d87f4aa5, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -5,17 +7,19 @@ public class HireNpc : MonoBehaviour
 {
     public int npcHireCost = 50; // Set the cost to hire an NPC
     public CoinSystem coinSystem;
-    public GameObject npcObject; // Reference to the NPC GameObject
+    public GameObject npcObject;
+    public AudioClip LetGo;   // Reference to the NPC GameObject
     private NavMeshAgent navMeshAgent; // Reference to the NavMesh Agent component of the NPC
     public GameObject hire;
     private bool isInRange = false;
     private CharacterController characterController;
     private bool isHiring;
-
+    AudioSource audioSource;
     private bool hasHired = false; // Flag to track if the player has already hired the NPC
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         hire.SetActive(false); // Initially, the hire object is turned off
         characterController = GetComponent<CharacterController>();
         navMeshAgent = npcObject.GetComponent<NavMeshAgent>(); // Get the NavMeshAgent from the NPC GameObject
@@ -52,13 +56,14 @@ public class HireNpc : MonoBehaviour
 
     public void TryHireNpc()
     {
+        audioSource.PlayOneShot(LetGo);
         if (!hasHired && coinSystem.TryPurchase(npcHireCost))
         {
             // Activate the NavMeshAgent component when the NPC is hired
             navMeshAgent.enabled = true;
             hasHired = true; // Set the flag that the player has hired the NPC
-
-            hire.SetActive(false); // Deactivate the hire object
+             
+             hire.SetActive(false); // Deactivate the hire object
 
             // Other logic related to hiring the NPC
         }

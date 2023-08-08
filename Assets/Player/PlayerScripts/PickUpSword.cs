@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpSword : MonoBehaviour
+public class PickUpSword2 : MonoBehaviour
 {
     public GameObject SwordObject;
     public GameObject TargetSword;

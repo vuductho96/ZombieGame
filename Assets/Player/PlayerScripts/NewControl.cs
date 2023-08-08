@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewControl : MonoBehaviour
+public class NewControl2 : MonoBehaviour
 {
    
     private AudioSource SoundEffect;

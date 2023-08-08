@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Jetpack : MonoBehaviour
+public class Jetpack2 : MonoBehaviour
 {
     public float maxFuel = 4f;
     public float thurstForce = 10f;

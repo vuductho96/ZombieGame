@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class FreeflightCamera : MonoBehaviour 
+public class FreeflightCamera2 : MonoBehaviour 
 {
     public float speedNormal = 10.0f;
     public float speedFast   = 50.0f;

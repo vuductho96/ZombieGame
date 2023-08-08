@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PickUpControler : MonoBehaviour
+public class PickUpControler2 : MonoBehaviour
 {
     public GameObject AxeObject;
     public GameObject TargetAxe;

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PickUpjetPack : MonoBehaviour
+public class PickUpjetPack2 : MonoBehaviour
 {
-    private Jetpack jetpackScript; // Reference to the Jetpack script
+    // Reference to the Jetpack script
     private bool isGrounded;
     public GameObject JetpackObject;
     public GameObject TargetJetpack;
@@ -25,8 +25,7 @@ public class PickUpjetPack : MonoBehaviour
         currentJetpack = JetpackObject;
 
         // Get the reference to the Jetpack script
-        jetpackScript = GetComponent<Jetpack>();
-        jetpackScript.enabled = false; // Disable the Jetpack script initially
+       //
     }
 
     private void Update()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIMANAGER : MonoBehaviour
+public class UIMANAGER2 : MonoBehaviour
 {
     public Slider runStamina;
     public float maxStamina = 100f;

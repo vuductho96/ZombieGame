@@ -1,8 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class Shooting2 : MonoBehaviour
 {
+  
     public  GameObject TargetGun;
     public float range = 100f;
     private Animator anim;
@@ -11,7 +12,7 @@ public class Shooting : MonoBehaviour
     public float MaxAmmo = 100f;
     public float CurrentAmmo;
     public ParticleSystem MuzzleFlash;
-    public float FireRate = 2f;
+    private float FireRate = 0.5f;
     private LayerMask ignorePlayerLayerMask;
     private bool isReloading;
     private bool isShooting;
@@ -21,7 +22,8 @@ public class Shooting : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         CurrentAmmo = MaxAmmo;
-
+        // Find the AMMODISPLAY script on the player GameObject
+      
         int playerLayer = LayerMask.NameToLayer("Player");
         ignorePlayerLayerMask = ~LayerMask.GetMask(LayerMask.LayerToName(playerLayer));
 

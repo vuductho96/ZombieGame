@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SwordAttack : MonoBehaviour
+public class SwordAttack2 : MonoBehaviour
 {
     public float damageAmount = 20f;
     public float radius = 1.5f;
